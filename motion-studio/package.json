@@ -1,0 +1,17 @@
+{
+  "name": "motion-studio",
+  "private": true,
+  "type": "module",
+  "description": "Code-rendered motion videos with Claude: seek(t) films, springs, beat grid, synthesized sound, critique loop.",
+  "scripts": {
+    "preview": "npx --yes http-server -p 8080 -c-1 .",
+    "stills": "node render.mjs --stills 0.5",
+    "draft": "node render.mjs --draft",
+    "render": "node render.mjs",
+    "render:all": "node render.mjs --format 9x16 && node render.mjs --format 1x1 && node render.mjs --format 16x9",
+    "audio": "node tools/music.mjs --bpm 120 --dur 12 --out audio/music.wav && node tools/sfx.mjs cues.json audio/sfx.wav",
+    "mix": "bash tools/mix.sh",
+    "critique": "bash tools/critique.sh"
+  },
+  "devDependencies": { "playwright": "^1.56.0" }
+}
